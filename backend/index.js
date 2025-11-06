@@ -15,6 +15,13 @@ const io =  new Server(server, {
     }
 })
 
+io.on("connection", (socket) => {
+    console.log(socket.id)
+    socket.on("desconectado", () => {
+        console.log("Usuario desconectado")
+    })
+})
+
 server.listen(3001, () => {
     console.log(`Servidor corriendo en en el puerto ${3001}`)
 })
